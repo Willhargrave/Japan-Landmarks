@@ -1,12 +1,3 @@
-// Entry point for the build script in your package.json
-//= require_tree
-//= require jquery
-//= require jquery_ujs
-import "@hotwired/turbo-rails"
-import "./controllers"
-import "bootstrap"
-
-
 jQuery(document).ready(function($){
 	var $timeline_block = $('.cd-timeline-block');
 

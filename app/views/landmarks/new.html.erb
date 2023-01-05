@@ -1,0 +1,8 @@
+<h1>Add a new landmark!</h1>
+
+<%= simple_form_for [@landmark] do |f| %>
+ <%= f.input :name %>
+  <%= f.input :comment %>
+  <%= f.input :address %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= link_to landmark_path(landmark), class: "links" do%>
+  <div class="window-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0)), url(<%= 'https://source.unsplash.com/random/?' + landmark.name.split.join("") %> )">
+    <h3><%= landmark.name %></h3>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= 'https://source.unsplash.com/random/?' + @landmark.name.split(" ").join('-')%>);">
+  <div class="container">
+    <h1><%= @landmark.name %>: <%= @landmark.address %></h1>
+    <p><%= @landmark.comment %></p>
+    <%= link_to "back",  root_path, class: "btn btn-primary"%>
+  <%= link_to "Add a review",  new_landmark_review_path(@landmark), class: "btn btn-success"%>
+  <%= link_to "edit",  edit_landmark_path(@landmark), class: "btn btn-danger"%>
+  </div>
+</div>
+
+<h1></h1>
+
+<h2>Reviews!</h2>
+<% @landmark.reviews.each do |review| %>
+<h1><%= review.content %></h1>
+  <% review.rating.times do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+  <% (5 - review.rating).times do %>
+    <i class="far fa-star"></i>
+  <% end %>
+<% end %>

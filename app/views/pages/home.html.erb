@@ -1,2 +1,72 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80);">
+  <div class="container">
+    <h1>🗼
+      <span class="words-wrapper">
+        <b class="is-visible">Welcome to Japan!!</b>
+        <b>日本へよこそう！！</b>
+      </span>
+    </h1>
+  </div>
+</div>
+<div class="container mt-2">
+  <div class="headings">
+    <h2>Check out all Japan has to offer!</h2>
+    <%= link_to "Found a place you want to add?",  new_landmark_path(@landmark), class: "btn btn-success"%>
+  </div>
+</div>
+<div class="container mt-2">
+  <div id="map"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+<script>
+  var isLast = function(word) {
+    return $(word).next().length > 0 ? false : true;
+  }
+
+  var getNext = function(word) {
+    return $(word).next();
+  }
+
+  var getVisible = function () {
+    return document.getElementsByClassName('is-visible');
+  }
+
+  var getFirst =  function() {
+    var node = $('.words-wrapper').children().first();
+    return node;
+  }
+
+  var switchWords = function(current, next) {
+    $(current).removeClass('is-visible').addClass('is-hidden');
+    $(next).removeClass('is-hidden').addClass('is-visible');
+  }
+
+  var getStarted = function() {
+    //We start by getting the visible element and its sibling
+    var first = getVisible();
+    var next = getNext(first);
+
+    //If our element has a sibling, it's not the last of the list. We switch the classes
+    if (next.length !== 0) {
+       switchWords(first,next);
+    } else {
+
+      //The element is the last of the list. We remove the visible class of the current element
+      $(first).removeClass('is-visible').addClass('is-hidden');
+
+      //And we get the first element of the list, and we give it the visible class. And it starts again.
+      var newEl = getFirst();
+      $(newEl).removeClass('is-hidden').addClass('is-visible');
+    }
+
+  }
+
+  var init = function() {
+    setInterval(function() {getStarted()}, 2000);
+  }
+
+  init();
+</script>
