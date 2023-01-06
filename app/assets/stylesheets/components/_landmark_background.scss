@@ -1,0 +1,16 @@
+.something {
+  display: flex;
+}
+.landmark_background {
+  margin-left: 20px;
+  width: 600px;
+  height: 100vh;
+}
+.content {
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 2px;
+}
