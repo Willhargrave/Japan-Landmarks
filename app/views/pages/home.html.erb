@@ -7,10 +7,10 @@
       </span>
     </h1>
   </div>
-</div>
+
 <div class="container mt-2">
   <div class="headings">
-    <h2>Check out all Japan has to offer!</h2>
+    <h2 style ="color: white">Check out all Japan has to offer!</h2>
     <%= link_to "Found a place you want to add?",  new_landmark_path(@landmark), class: "btn btn-success"%>
   </div>
 </div>
@@ -20,6 +20,7 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
 </div>
 <script>
   var isLast = function(word) {

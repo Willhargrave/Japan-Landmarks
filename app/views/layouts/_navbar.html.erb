@@ -5,8 +5,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" <%= link_to "home",  root_path%> <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Info</a>
+      <a class="nav-item nav-link active" <%= link_to "Home",  root_path%> <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#"><%= link_to "Add",  new_landmark_path(@landmark), class: "links"%></a>
       <a class="nav-item nav-link" href="#">Login</a>
     </div>
   </div>
