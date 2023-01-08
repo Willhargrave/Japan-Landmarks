@@ -1,0 +1,10 @@
+<% @landmark.reviews.each do |review| %>
+<h3><%= review.content %></h3>
+  <% review.rating.times do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+  <% (5 - review.rating).times do %>
+    <i class="far fa-star"></i>
+  <% end %>
+<% end %>
+<p>Would you like to <%= link_to "add",  new_landmark_review_path(@landmark), class: "links"%> one?</p>
